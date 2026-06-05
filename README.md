@@ -1,4 +1,4 @@
-markdown_content = """# 🎓 Plataforma Educacional MVP
+# 🎓 Plataforma Educacional MVP
 
 Uma plataforma web educacional gratuita projetada para conectar estudantes e professores. O sistema permite a criação de cursos, matrícula de alunos, acompanhamento de progresso aula a aula e a emissão automática de certificados autênticos em PDF.
 
@@ -18,3 +18,18 @@ Uma plataforma web educacional gratuita projetada para conectar estudantes e pro
 * **Comunicação e Segurança:** pymysql, cryptography, hashlib
 
 ## 📂 Estrutura do Projeto
+```text
+plataforma_educacional/
+│
+├── app.py                  # Ponto de entrada (Login e Cadastro)
+├── .gitignore              # Arquivos ignorados pelo Git
+│
+├── pages/                  # Páginas do Menu Lateral (Streamlit)
+│   ├── 1_dashboard_aluno.py
+│   ├── 2_painel_professor.py
+│   ├── 4_sala_de_aula.py
+│   └── 5_meus_certificados.py
+│
+└── database/               # Lógica de Dados
+    ├── conexao.py          # Conexão e inicialização do MySQL
+    └── models.py           # Modelagem de tabelas SQLAlchemy
