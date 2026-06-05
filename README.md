@@ -33,3 +33,45 @@ plataforma_educacional/
 └── database/               # Lógica de Dados
     ├── conexao.py          # Conexão e inicialização do MySQL
     └── models.py           # Modelagem de tabelas SQLAlchemy
+```
+## 🚀 Como Rodar a Aplicação Localmente
+
+### 1. Pré-requisitos
+* Ter o **Python** instalado na máquina.
+* Ter o **MySQL** (ou MariaDB) instalado e rodando.
+* Criar um banco de dados vazio no seu MySQL chamado `plataforma_edu` (ex: rodando `CREATE DATABASE plataforma_edu;` no MySQL).
+
+### 2. Configure a Conexão
+Abra o arquivo `database/conexao.py` e altere a string de conexão na variável `DATABASE_URL` com a senha real do seu usuário do banco de dados (ex: `root`).
+
+### 3. Configuração do Ambiente Virtual
+Abra o terminal na pasta raiz do projeto (`plataforma_educacional`) e crie um ambiente virtual:
+
+```bash
+python -m venv .venv
+```
+
+### 4. Instale as Dependências
+[cite_start]Com o ambiente ativado (`.venv`), instale as bibliotecas necessárias:
+
+```bash
+pip install streamlit sqlalchemy pymysql cryptography fpdf
+```
+
+### 5. Construa as Tabelas do Banco de Dados
+Ainda no terminal, execute o script de conexão para criar as tabelas mapeadas:
+
+```bash
+python database/conexao.py
+```
+
+### 6. Inicie a Plataforma
+
+Por fim, inicie o servidor do Streamlit:
+
+```bash
+python -m streamlit run app.py
+```
+
+O navegador abrirá automaticamente em http://localhost:8501. Pronto!
+
