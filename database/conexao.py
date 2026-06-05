@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from models import Base
+from database.models import Base
 
 # Substitua pelas suas credenciais reais do MySQL local
 # Formato: mysql+pymysql://usuario:senha@host:porta/nome_do_banco

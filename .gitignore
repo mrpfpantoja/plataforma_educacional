@@ -1,0 +1,17 @@
+# Ambientes Virtuais
+.venv/
+venv/
+env/
+
+# Cache do Python e Streamlit
+__pycache__/
+*.pyc
+.pytest_cache/
+.streamlit/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Certificados gerados localmente (opcional, para não poluir o repo)
+*.pdf
