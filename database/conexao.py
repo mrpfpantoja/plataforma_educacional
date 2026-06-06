@@ -3,12 +3,17 @@ import streamlit as st
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 
-# Verifica se está rodando no Streamlit Cloud (onde os secrets existem)
-if "DATABASE_URL" in st.secrets:
+# Verifica de forma segura se estamos rodando no Streamlit Cloud
+# O Streamlit Cloud injeta variáveis de ambiente, o seu localhost não.
+try:
+    # Tenta puxar a URL direto dos secrets (vai funcionar na nuvem)
     DATABASE_URL = st.secrets["DATABASE_URL"]
-else:
-    # Se estiver rodando no seu computador (localhost), usa o banco local
-    DATABASE_URL = "mysql+pymysql://root:1234@localhost/plataforma_edu"
+except FileNotFoundError:
+    # Se o arquivo não existir (que é o caso do seu computador local), cai aqui
+    DATABASE_URL = "mysql+pymysql://root:SUA_SENHA_AQUI@localhost/plataforma_edu"
+except Exception:
+    # Segurança extra
+    DATABASE_URL = "mysql+pymysql://root:SUA_SENHA_AQUI@localhost/plataforma_edu"
 
 # Cria a engine de conexão
 engine = create_engine(DATABASE_URL, echo=False)
